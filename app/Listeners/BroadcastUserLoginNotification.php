@@ -28,6 +28,6 @@ class BroadcastUserLoginNotification
     public function handle(Login $event)
     {
         // Shows the user is now online
-        broadcast(new UserSessionChanged("{$event->user->name} is now online", 'success'));
+        broadcast(new UserSessionChanged("@{$event->user->nick} is now online", 'success'));
     }
 }

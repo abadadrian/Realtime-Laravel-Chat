@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
 
 class HomeController extends Controller
 {
@@ -19,10 +20,14 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('home');
+        $images = Image::orderBy('id', 'DESC')->get();
+
+        return view('home', [
+            'images' => $images
+        ]);
     }
 }

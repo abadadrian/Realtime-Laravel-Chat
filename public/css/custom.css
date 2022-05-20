@@ -1,0 +1,162 @@
+.company-header-avatar {
+    width: 100%;
+    height: auto;
+
+    -webkit-background-clip: padding-box;
+
+    -moz-background-clip: padding;
+
+    background-clip: padding-box;
+}
+.landscape .company-header-avatar {
+    width: auto;
+    height: 100%;
+}
+.potrait .company-header-avatar {
+    width: 100%;
+    height: auto;
+}
+.image_cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin: 7px 0 0 5px;
+}
+/* Home Circular Avatar Image */
+.pub_image .container-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pub_image .container-avatar img {
+    height: 100%;
+}
+
+.pub_image .container-avatar {
+    float: left;
+}
+
+.pub_image .data-user {
+    margin-left: 3rem;
+    line-height: 32px;
+}
+
+.data-user-detail {
+    margin-left: 0.8rem;
+    line-height: 32px;
+}
+
+.pub_image,
+.pub_image_detail {
+    border: 1px solid #cacaca;
+    box-shadow: none;
+}
+
+.desc {
+    display: inline-block;
+}
+
+.desc-detail {
+    display: flex;
+    margin-left: 1.2rem;
+    vertical-align: middle;
+}
+
+.description {
+    color: #262626;
+}
+
+.nickname {
+    font-weight: bold;
+    color: black;
+    float: left;
+    margin-top: 1px;
+}
+
+/* Image Container Home */
+.image-container {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.pub_image .card-body {
+    padding: 0;
+}
+
+/* Post Buttons */
+.post-button {
+    margin: 0px 8px 0px 8px;
+}
+
+/* View Comments */
+#view-comments a:link,
+#view-comments a:visited,
+#date-text a:link,
+#date-text a:visited {
+    color: #8e8e8e;
+}
+
+/* Comments Link Style */
+#comment-link,
+#date-text {
+    color: #8e8e8e;
+    text-decoration: none;
+}
+
+#date-text {
+    font-size: 0.7rem;
+}
+
+.delete-option {
+    margin-top: 0.5rem;
+    float: right;
+}
+
+
+.image-detail-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-detail-container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom button */
+.btn-outline-primary {
+    border-radius: 2rem;
+    padding: 6px 15px 6px 15px;
+}
+
+.date-detail {
+    float: left;
+}
+
+.btn-dislike {
+    width: 24px;
+    height: 24px;
+    margin: 0px 0px 15px 8px;
+    cursor: pointer;
+}
+
+.btn-like {
+    width: 24px;
+    height: 24px;
+    margin: 0px 0px 15px 8px;
+    cursor: pointer;
+}
+
+.search-button {
+    margin: 0 2px 2px 0;
+}

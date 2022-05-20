@@ -22,9 +22,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role',
         'name',
+        'surname',
+        'nick',
         'email',
+        'description',
         'password',
+
     ];
 
     /**
@@ -59,4 +64,10 @@ class User extends Authenticatable
         'updated' => UserUpdated::class,
         'deleted' => UserDeleted::class,
     ];
+
+    // Has many relationship with Image
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

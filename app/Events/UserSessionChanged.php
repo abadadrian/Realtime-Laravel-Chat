@@ -28,6 +28,8 @@ class UserSessionChanged implements ShouldBroadcast
     //  Canal por el que se trasnmite el evento
     public function broadcastOn()
     {
+        // \Log::debug("{$this->message}");
+        // \Log::debug("{$this->type}");
         return new PrivateChannel('notifications');
     }
 }
