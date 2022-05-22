@@ -26,8 +26,9 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-// View to show all users
-Route::view('/users', 'users.showAll')->name('users.all');
+// View to show all user
+Route::view('/users', 'user.showAll')->name('user.all');
+
 
 // Route (get) to show chat
 Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show');
@@ -68,6 +69,11 @@ Route::get('/likes', 'App\Http\Controllers\LikeController@index')->name('likes.i
 // Delete image
 Route::get('/image/delete/{id}', 'App\Http\Controllers\ImageController@delete')->name('image.delete')->middleware(['auth', 'language']);
 
+// Edit image
+Route::get('/image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit')->middleware(['auth', 'language']);
+
+// Update image
+Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->name('image.update')->middleware(['auth', 'language']);
 
 Route::group(['middleware' => 'language', 'auth'], function () {
 	Route::get('table-list', function () {
@@ -102,6 +108,7 @@ Route::group(['middleware' => 'language', 'auth'], function () {
 Route::group(['middleware' => 'auth', 'language'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+	Route::get('profile/{id}', ['as' => 'profile.show', 'uses' => 'App\Http\Controllers\ProfileController@show']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });

@@ -35,8 +35,6 @@
                   <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" style="width:150px; height:150px; float:left; border-radius:50%;  object-fit: contain;">
                   @endif
                   <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" placeholder="{{ __('image_path') }}" />
-                  <!-- <input class="ml-4" id="image_path" type="file" name="image_path"> -->
-                  <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
                 </div>
               </div>
               <div class="row">
@@ -64,10 +62,10 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label">{{ __('Nickname') }}</label>
                 <div class="col-sm-7">
-                  <div class="form-group{{ $errors->has('nick') ? ' has-danger' : '' }}">
-                    <input class="form-control{{ $errors->has('nick') ? ' is-invalid' : '' }}" name="nick" id="input-nick" type="nick" placeholder="{{ __('nick') }}" value="{{ old('nick', auth()->user()->nick) }}" required />
-                    @if ($errors->has('nick'))
-                    <span id="nick-error" class="error text-danger" for="input-nick">{{ $errors->first('nick') }}</span>
+                  <div class="form-group{{ $errors->has('nickima') ? ' has-danger' : '' }}">
+                    <input class="form-control{{ $errors->has('nickima') ? ' is-invalid' : '' }}" name="nickima" id="input-nickima" type="nickima" placeholder="{{ __('nickima') }}" value="{{ old('nickima', auth()->user()->nickima) }}" required />
+                    @if ($errors->has('nickima'))
+                    <span id="nickima-error" class="error text-danger" for="input-nickima">{{ $errors->first('nickima') }}</span>
                     @endif
                   </div>
                 </div>

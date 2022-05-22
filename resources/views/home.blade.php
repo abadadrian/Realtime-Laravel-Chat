@@ -16,7 +16,7 @@
             <div class="col-md-8">
                 @foreach($images as $image)
                 <!-- Image Card Include -->
-                    @include('layouts.page_templates.image', ['image' => $image])
+                @include('layouts.page_templates.image', ['image' => $image])
                 @endforeach
 
             </div>

@@ -15,6 +15,7 @@ function like(){
         $(this).attr('src' , url+'/material/img/like-red.svg');
         // Get element which class is like-count
         var likeCount = $(this).parent().find('.like-count');
+        console.log(likeCount);
         // Get the number from like-count and increment with 1
         var count = parseInt(likeCount.text()) + 1 + " Likes";
         // Show the number in like-count

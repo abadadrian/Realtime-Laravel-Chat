@@ -31,13 +31,32 @@
                                 {{ $image->user->nick }}
                             </span>
                         </div>
-                        <svg aria-label="More options" class="options" color="#262626" fill="#262626" height="27" role="img" viewBox="0 0 24 24" width="27">
-                            <circle cx="12" cy="12" r="1.5"></circle>
-                            <circle cx="6" cy="12" r="1.5"></circle>
-                            <circle cx="18" cy="12" r="1.5"></circle>
-                        </svg>
+                        <!-- Show "More options" if you are owner of this image or your role is admin -->
+                        @if(Auth::user()->id == $image->user_id || Auth::user()->role == 'admin')
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @if(auth()->user()->image)
+                                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" width="24" role="img" viewBox="0 0 24 24" >
+                                        <circle cx="12" cy="12" r="1.5"></circle>
+                                        <circle cx="6" cy="12" r="1.5"></circle>
+                                        <circle cx="18" cy="12" r="1.5"></circle>
+                                    </svg> @endif
+                                    <p class="d-lg-none d-md-block">
+                                        {{ __('More options') }}
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                    <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
+                                </div>
+                            </li>
+                        </ul>
+                        @endif
                     </div>
-                    <hr style="margin-top: 2rem;">
+                    <hr style="margin-top: 0;">
                     <div class="card-body">
                         <div class="desc-detail">
                             @if($image->user->image)

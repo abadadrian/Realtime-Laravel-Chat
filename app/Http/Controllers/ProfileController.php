@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class ProfileController extends Controller
@@ -64,5 +66,11 @@ class ProfileController extends Controller
     {
         $file = Storage::disk('users')->get($filename);
         return new Response($file, 200);
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('profile.show', ['user' => $user]);
     }
 }

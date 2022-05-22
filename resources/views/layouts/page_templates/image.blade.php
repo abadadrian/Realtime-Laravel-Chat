@@ -6,19 +6,36 @@
         </div>
         @endif
         <div class="data-user">
-            <span class="nickname">
-                {{ $image->user->nick }}
-            </span>
+            <a href="{{ route('profile.show',['id'=>$image->user->id]) }}">
+                <span class="nickname">
+                    {{ $image->user->nick }}
+                </span>
+            </a>
         </div>
-        <!-- Show svg if you are owner of this image or your role is admin -->
+
+        <!-- Show "More options" if you are owner of this image or your role is admin -->
         @if(Auth::user()->id == $image->user_id || Auth::user()->role == 'admin')
-        <a href="{{ route('image.delete', ['id' => $image->id]) }}" class="delete-option">
-            <svg aria-label="Delete" color="#262626" fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
-                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.876" x2="21.124" y1="4.727" y2="4.727"></line>
-                <path d="M8.818 4.727v-1.59A1.136 1.136 0 019.954 2h4.092a1.136 1.136 0 011.136 1.136v1.591" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-                <path d="M4.377 4.727l1.987 15.88A1.59 1.59 0 007.942 22h8.116a1.59 1.59 0 001.578-1.393l1.987-15.88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-        </a>
+        <ul class="navbar-nav">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(auth()->user()->image)
+                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <circle cx="12" cy="12" r="1.5"></circle>
+                        <circle cx="6" cy="12" r="1.5"></circle>
+                        <circle cx="18" cy="12" r="1.5"></circle>
+                    </svg> @endif
+                    <p class="d-lg-none d-md-block">
+                        {{ __('More options') }}
+                    </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
+                </div>
+            </li>
+        </ul>
         @endif
     </div>
 

@@ -20,7 +20,7 @@
                     <i class="material-icons">email</i>
                   </span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="name@livechat.com">
+                <input type="email" name="email" class="form-control" placeholder="name@chatinity.com">
               </div>
               @if ($errors->has('email'))
               <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">

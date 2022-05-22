@@ -31,23 +31,12 @@ class ImageController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         // Return view for create image
         return view('image.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -92,38 +81,50 @@ class ImageController extends Controller
         $image = Image::find($id);
         return view('image.detail', ['image' => $image]);
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Image $image)
+
+    public function edit($id)
     {
-        //
+        // Get auth user
+        $user = Auth::user();
+        // Get image
+        $image = Image::find($id);
+        // Check if user is the owner of the image
+        if ($user && $image && $user->id == $image->user_id) {
+            return view('image.edit', ['image' => $image]);
+        } else {
+            return redirect('/home')->with('error', 'Unauthorized');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Image $image)
+    public function update(Request $request)
     {
-        //
-    }
+        //Validate
+        $validate = $this->validate($request, [
+            'description' => 'required',
+            'image_path'  => 'image'
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Image $image)
-    {
-        //
+        // Get data
+        $image_id = $request->input('image_id');
+        $image_path = $request->file('image_path');
+        $description = $request->input('description');
+
+        // Get image object
+        $image = Image::find($image_id);
+        $image->description = $description;
+
+        // Upload files
+        if ($image_path) {
+            $image_path_name = time() . $image_path->getClientOriginalName();
+            Storage::disk('images')->put($image_path_name, File::get($image_path));
+            $image->image_path = $image_path_name;
+        }
+
+        // Update
+        $image->update();
+
+        return redirect()->route('image.detail', ['id' => $image_id])
+            ->with(['message' => 'Image Updated Successfully']);
     }
 
     //Function to delete the image and its comments
