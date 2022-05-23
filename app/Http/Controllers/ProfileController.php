@@ -14,11 +14,22 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    /**
-     * Show the form for editing the profile.
-     *
-     * @return \Illuminate\View\View
-     */
+    public function index($search = null)
+    {
+        if (!empty($search)) {
+            $users = User::where('nick', 'LIKE', '%' . $search . '%')
+                ->orWhere('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('surname', 'LIKE', '%' . $search . '%')
+                ->orderBy('id', 'desc');
+        } else {
+            $users = User::orderBy('id', 'desc');
+        }
+
+        return view('profile.index', [
+            'users' => $users
+        ]);
+    }
+
     public function edit()
     {
         return view('profile.edit', array('user' => auth()->user()));

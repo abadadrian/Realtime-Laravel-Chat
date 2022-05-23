@@ -13,10 +13,10 @@
     <div id="notification" class="alert mx-1  invisible fade show"></div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                @foreach($images as $image)
-                <!-- Image Card Include -->
-                @include('layouts.page_templates.image', ['image' => $image])
+            <div class="col-md-12">
+                <h1>People</h1>
+                @foreach($users as $user)
+                <h1>{{$user->name}}</h1>
                 @endforeach
             </div>
         </div>

@@ -38,7 +38,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @if(auth()->user()->image)
-                                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" width="24" role="img" viewBox="0 0 24 24" >
+                                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" width="24" role="img" viewBox="0 0 24 24">
                                         <circle cx="12" cy="12" r="1.5"></circle>
                                         <circle cx="6" cy="12" r="1.5"></circle>
                                         <circle cx="18" cy="12" r="1.5"></circle>
@@ -56,7 +56,11 @@
                         </ul>
                         @endif
                     </div>
+                    @if(Auth::user()->id == $image->user_id || Auth::user()->role == 'admin')
                     <hr style="margin-top: 0;">
+                    @else
+                    <hr style="margin-top: 2rem;">
+                    @endif
                     <div class="card-body">
                         <div class="desc-detail">
                             @if($image->user->image)

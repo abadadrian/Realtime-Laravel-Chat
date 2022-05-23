@@ -11,69 +11,59 @@ use App\Models\Image;
 use App\Models\Comment;
 use App\Models\Like;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+// Welcome Route
 Route::get('/', function () {
 	return view('welcome');
 });
-
-// View to show all user
-Route::view('/users', 'user.showAll')->name('user.all');
 
 
 // Route (get) to show chat
 Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show');
 // Route (post) message received
 Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'messageReceived'])->name('chat.message');
-
+// GENERAL ROUTES
 Auth::routes();
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware(['auth', 'language']);
-
-Route::get('/upload', 'App\Http\Controllers\ImageController@create')->name('upload.image')->middleware(['auth', 'language']);
-Route::post('/image/store', 'App\Http\Controllers\ImageController@store')->name('upload.store')->middleware(['auth', 'language']);
-
+// Home Route
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 // Shows users avatar img
 Route::get('/user/avatar/{filename}', 'App\Http\Controllers\ProfileController@getImage')->name('user.avatar');
 
+// ROUTE FOR COMMENTS
+// Store the comment into an image
+Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.store');
+// Delete you own message
+Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name('comment.destroy');
+
+// ROUTES FOR LIKES
+// Store the like into an image
+Route::get('/like/{image_id}', 'App\Http\Controllers\LikeController@like')->name('like.save');
+// Delete the like into an image
+Route::get('/dislike/{image_id}', 'App\Http\Controllers\LikeController@dislike')->name('like.delete');
+// List of all likes
+Route::get('/likes', 'App\Http\Controllers\LikeController@index')->name('likes');
+
+// ROUTE FOR IMAGES
+// Delete image
+Route::get('/image/delete/{id}', 'App\Http\Controllers\ImageController@delete')->name('image.delete');
+// Edit image
+Route::get('/image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit');
 // Shows users avatar img IN HOME
 Route::get('/image/file/{filename}', 'App\Http\Controllers\ImageController@getImage')->name('image.file');
-
 // Show the image alone
 Route::get('/image/{id}', 'App\Http\Controllers\ImageController@detail')->name('image.detail');
-
-// Store the comment into an image
-Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.store')->middleware(['auth', 'language']);
-
-// Delete you own message
-Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name('comment.destroy')->middleware(['auth', 'language']);
-
-// Store the like into an image
-Route::get('/like/{image_id}', 'App\Http\Controllers\LikeController@like')->name('like.save')->middleware(['auth', 'language']);
-
-// Delete the like into an image
-Route::get('/dislike/{image_id}', 'App\Http\Controllers\LikeController@dislike')->name('like.delete')->middleware(['auth', 'language']);
-
-// List of all likes
-Route::get('/likes', 'App\Http\Controllers\LikeController@index')->name('likes.index')->middleware(['auth', 'language']);
-
-// Delete image
-Route::get('/image/delete/{id}', 'App\Http\Controllers\ImageController@delete')->name('image.delete')->middleware(['auth', 'language']);
-
-// Edit image
-Route::get('/image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit')->middleware(['auth', 'language']);
-
 // Update image
-Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->name('image.update')->middleware(['auth', 'language']);
+Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->name('image.update');
+// Upload the image
+Route::get('/upload', 'App\Http\Controllers\ImageController@create')->name('upload.image');
+// Store the image
+Route::post('/image/store', 'App\Http\Controllers\ImageController@store')->name('upload.store');
+
+
+//Show all users and search (optional)
+Route::get('/people/{search?}', 'App\Http\Controllers\ProfileController@index')->name('profile.index');
+
+// Users in realtime using api
+Route::view('/usersapi', 'user.showAll')->name('user.all');
 
 Route::group(['middleware' => 'language', 'auth'], function () {
 	Route::get('table-list', function () {

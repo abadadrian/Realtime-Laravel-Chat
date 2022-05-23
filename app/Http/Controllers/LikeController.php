@@ -20,7 +20,6 @@ class LikeController extends Controller
         // Order by likes
         $likes = Like::where('user_id', $user->id)->orderBy('id', 'desc');
 
-
         return view('like.index', [
             'likes' => $likes
         ]);

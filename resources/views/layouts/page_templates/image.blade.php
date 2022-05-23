@@ -25,9 +25,6 @@
                         <circle cx="6" cy="12" r="1.5"></circle>
                         <circle cx="18" cy="12" r="1.5"></circle>
                     </svg> @endif
-                    <p class="d-lg-none d-md-block">
-                        {{ __('More options') }}
-                    </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                     <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>

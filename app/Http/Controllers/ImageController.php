@@ -62,7 +62,7 @@ class ImageController extends Controller
             Storage::disk('images')->put($image_path_name, File::get($image_path));
             $image->image_path = $image_path_name;
         }
-
+        // Save attributes to image object
         $image->save();
         // Redirect to home
         return redirect('/home')->with('success', 'Image Uploaded');
