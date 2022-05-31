@@ -6444,6 +6444,7 @@ button.bg-dark:focus {
   }
   .d-md-block {
     display: block !important;
+    color: #262626;
   }
   .d-md-table {
     display: table !important;
@@ -18837,9 +18838,6 @@ Copyright (c) 2015 Daniel Eden
   height:auto;
 }
 
-.off-canvas-sidebar .navbar-collapse:after {
-  background-color: #282828;
-}
 
 .off-canvas-sidebar .wrapper-full-page .page-header {
   padding-bottom: 0px !important;
