@@ -12,6 +12,7 @@
     width: auto;
     height: 100%;
 }
+
 .potrait .company-header-avatar {
     width: 100%;
     height: auto;
@@ -34,6 +35,12 @@
 
 .pub_image .container-avatar img {
     height: 100%;
+}
+
+.comment-section {
+    max-height: 10rem;
+    max-width: 100%;
+    overflow-y: scroll;
 }
 
 .pub_image .container-avatar {
@@ -77,6 +84,10 @@
     margin-top: 1px;
 }
 
+.nick-underline:hover {
+    text-decoration: underline;
+}
+
 /* Image Container Home */
 .image-container {
     height: auto;
@@ -86,6 +97,58 @@
 
 .image-container img {
     width: 100%;
+}
+
+.img-profile {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 2rem;
+}
+
+.img-profile-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-profile-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-profile-medium {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-profile-edit {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    float: left;
+}
+
+.img-medium {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+.row-custom {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 
 .pub_image .card-body {
@@ -105,6 +168,18 @@
     color: #8e8e8e;
 }
 
+.no-link,
+.no-link:hover,
+.no-link:visited {
+    color: #262626;
+    text-decoration: none;
+}
+
+.nav-mini {
+    width: fit-content;
+    float: right;
+}
+
 /* Comments Link Style */
 #comment-link,
 #date-text {
@@ -118,6 +193,12 @@
 
 .delete-option {
     float: right;
+}
+
+.delete-button,
+.delete-button:visited,
+.delete-button:hover {
+    color: #8e8e8e;
 }
 
 .image-detail-container {
@@ -148,7 +229,7 @@
     cursor: pointer;
 }
 
-.empty-link{
+.empty-link {
     cursor: pointer;
 }
 
@@ -156,11 +237,12 @@
     color: #fff;
 }
 
-.btn-like-profile, .btn-comment-profile{
-        width: 24px;
-        height: 24px;
-        margin: 0px 0px 15px 8px;
-        cursor: pointer;
+.btn-like-profile,
+.btn-comment-profile {
+    width: 24px;
+    height: 24px;
+    margin: 0px 0px 15px 8px;
+    cursor: pointer;
 }
 
 .btn-like {
@@ -209,8 +291,8 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     cursor: pointer;
 }
 
-.btn:focus {
-    outline: 0.5rem auto #4d90fe;
+.btn-show:hover {
+    color: #262626;
 }
 
 .visually-hidden {
@@ -226,8 +308,6 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 .profile {
     padding: 5rem 0;
 }
-
-
 
 .profile::after {
     content: "";
@@ -246,6 +326,8 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 .profile-image img {
     border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
 }
 
 .profile-user-settings,
@@ -257,6 +339,35 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 .profile-user-settings {
     margin-top: 1.1rem;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.grid-images {
+    align-items: center;
+}
+
+.image-box {
+    width: 28rem;
+    height: 28rem;
+    object-fit: cover;
+}
+
+.col-4 {
+    width: 20rem;
+    height: 20rem;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.box-image {
+    object-fit: cover;
 }
 
 .profile-stat-count,
@@ -286,16 +397,11 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     margin-left: 1rem;
 }
 
-.profile-stats {
-    margin-top: 2.3rem;
-}
-
 .profile-stats li {
     display: inline-block;
     font-size: 1.6rem;
     line-height: 1.5;
     margin-right: 4rem;
-    cursor: pointer;
 }
 
 .profile-stats li:last-of-type {
@@ -306,13 +412,17 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.5;
-    margin-top: 2.3rem;
 }
 
 .profile-real-name,
 .profile-stat-count,
 .profile-edit-btn {
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.profile-description {
+    font-size: 16px;
 }
 
 /* Gallery Section */
@@ -339,8 +449,8 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     align-items: center;
     position: absolute;
     top: 0;
-    width: 18.313rem;
-    height: 18.313rem;
+    width: 28rem;
+    height: 28rem;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -356,6 +466,11 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 .gallery-item-likes {
     margin-right: 2.2rem;
+    color: white;
+}
+
+.gallery-item-comments {
+    color: white;
 }
 
 .gallery-item-type {
@@ -371,16 +486,10 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     transform: rotateY(180deg);
 }
 
-.gallery-image {
-    width: 18.313rem;
-    height: 18.313rem;
-    object-fit: cover;
-}
-
 .gallery-item-info,
 .gallery-item {
-    width: 18.313rem;
-    height: 18.313rem;
+    width: 28rem;
+    height: 28rem;
 }
 
 /* Loader */
@@ -393,6 +502,12 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     border-radius: 50%;
     margin: 0 auto;
     animation: loader 500ms linear infinite;
+}
+
+/* Hover of delete button */
+.hover-delete:hover {
+    color: #ff0000;
+    transition: all 0.5s ease;
 }
 
 /* Media Query */
@@ -438,6 +553,10 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
         margin-top: 1rem;
     }
 
+    .profile-edit-btn:hover {
+        color: #262626 !important;
+    }
+
     .profile-edit-btn {
         margin-left: 0;
     }
@@ -474,12 +593,9 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
     .profile-stat-count {
         display: block;
-    }
-
         width: 24px;
         height: 24px;
         margin: 0px 0px 15px 8px;
-        cursor: pointer;
     }
 }
 
@@ -524,9 +640,23 @@ Remove or comment-out the code block below to see how the browser will fall-back
     .profile-bio,
     .gallery {
         width: auto;
-        margin: 0;
     }
 
+    /* Media querie 991px  */
+    @media screen and (max-width: 991px) {
+        .btn {
+            padding: 7.5px 16px;
+        }
+    }
+
+    /* Media querie 576px  */
+    @media screen and (max-width: 576px) {
+        .online-box {
+            display: none;
+        }
+
+        /* Btn remove content and put svg */
+    }
     @media (max-width: 40rem) {
         .profile {
             grid-template-columns: auto 1fr;

@@ -33,6 +33,9 @@ Route::get('/user/avatar/{filename}', 'App\Http\Controllers\ProfileController@ge
 Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.store');
 // Delete you own message
 Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name('comment.destroy');
+// Get user comment image
+Route::get('/comment/image/{filename}', 'App\Http\Controllers\CommentController@getImage')->name('comment.avatar');
+
 
 // ROUTES FOR LIKES
 // Store the like into an image
@@ -57,6 +60,30 @@ Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->nam
 Route::get('/upload', 'App\Http\Controllers\ImageController@create')->name('upload.image');
 // Store the image
 Route::post('/image/store', 'App\Http\Controllers\ImageController@store')->name('upload.store');
+
+// ROUTES FOR ADMIN
+// Show the admin panel users
+Route::get('/admin/users', 'App\Http\Controllers\AdminController@viewUsers')->name('admin.users');
+// Show the admin panel images
+Route::get('/admin/images', 'App\Http\Controllers\AdminController@viewImages')->name('admin.images');
+
+// Delete the user by id
+Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\AdminController@destroyUser')->name('admin.user.delete');
+// Delete the image by id
+Route::get('/admin/image/delete/{id}', 'App\Http\Controllers\AdminController@destroyImage')->name('admin.image.delete');
+
+// Edit the user by id
+Route::get('/admin/user/edit/{id}', 'App\Http\Controllers\AdminController@editUser')->name('admin.user.edit');
+// Edit the image by id
+Route::get('/admin/image/edit/{id}', 'App\Http\Controllers\AdminController@editImage')->name('admin.image.edit');
+
+// Update the user by id
+Route::put('/admin/user/update', 'App\Http\Controllers\AdminController@updateUser')->name('admin.user.update');
+
+// Show the user by id
+Route::get('/admin/user/show/{id}', 'App\Http\Controllers\AdminController@showUser')->name('admin.user.show');
+// Show the image by id
+Route::get('/admin/image/show/{id}', 'App\Http\Controllers\AdminController@showImage')->name('admin.image.show');
 
 
 //Show all users and search (optional)
@@ -94,6 +121,9 @@ Route::group(['middleware' => 'language', 'auth'], function () {
 		return view('pages.upgrade');
 	})->name('upgrade');
 });
+
+// Route to delete a profile by id
+Route::get('/profile/delete/{id}', 'App\Http\Controllers\ProfileController@destroy')->name('profile.delete');
 
 Route::group(['middleware' => 'auth', 'language'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);

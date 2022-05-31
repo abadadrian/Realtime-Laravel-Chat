@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\Image;
 
 
 class ProfileController extends Controller
@@ -20,9 +23,11 @@ class ProfileController extends Controller
             $users = User::where('nick', 'LIKE', '%' . $search . '%')
                 ->orWhere('name', 'LIKE', '%' . $search . '%')
                 ->orWhere('surname', 'LIKE', '%' . $search . '%')
-                ->orderBy('id', 'desc');
+                ->orderBy('id', 'desc')
+                ->paginate(4);
         } else {
-            $users = User::orderBy('id', 'desc');
+            $users = User::orderBy('id', 'desc')
+                ->paginate(4);
         }
 
         return view('profile.index', [
@@ -83,5 +88,52 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         return view('profile.show', ['user' => $user]);
+    }
+
+    //Function to delete the user
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $comments = Comment::where('user_id', $id)->get();
+        $likes = Like::where('user_id', $id)->get();
+        $images = Image::where('user_id', $id)->get();
+
+        // If profile image of user is different than default, delete from disk to save local space
+        if ($user->image != 'default.jpg') {
+            Storage::disk('users')->delete($user->image);
+        }
+
+        // If user can delete the user
+        if (Auth::user()->id == $user->id) {
+            // Delete all comments of user
+            foreach ($comments as $comment) {
+                $comment->delete();
+            }
+            // Delete all likes of user
+            foreach ($likes as $like) {
+                $like->delete();
+            }
+            // Delete all comments in the images of user
+            foreach ($images as $image) {
+                $comments = Comment::where('image_id', $image->id)->get();
+                foreach ($comments as $comment) {
+                    $comment->delete();
+                }
+            }
+            // Delete all likes in the images of user
+            foreach ($images as $image) {
+                $likes = Like::where('image_id', $image->id)->get();
+                foreach ($likes as $like) {
+                    $like->delete();
+                }
+            }
+            // Delete all images of user
+            foreach ($images as $image) {
+                $image->delete();
+            }
+            // Delete user
+            $user->delete();
+        }
+        return redirect('/profile')->with('success', 'User has been deleted');
     }
 }

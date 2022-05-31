@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:100'],
             'surname' => ['required', 'string', 'max:150'],
-            'nick' => ['required', 'string', 'max:50'],
+            'nick' => ['required', 'string', 'max:25', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -71,11 +71,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'description' => 'I am new in Chatinity!',
-            'image' => 'default.jpg',
+            'image' => '',
             'nick' => $data['nick'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        // id	role	name	surname	description	image	email	email_verified_at	password
     }
 }

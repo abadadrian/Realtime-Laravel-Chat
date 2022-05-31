@@ -10,11 +10,12 @@
 @endpush
 @section('content')
 <div class="content">
-    <div id="notification" class="alert mx-1  invisible fade show"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h1>Liked posts</h1>
+                <!-- If $user->id count likes > 0 -->
+                @if ($likes->count() > 0)
                 <!-- Loop $likes and show your liked images -->
                 @foreach($likes as $like)
                 <div class="card mb-3">
@@ -32,6 +33,12 @@
                     </div>
                 </div>
                 @endforeach
+                <!-- If user dont has liked posts -->
+                @else
+                <div class="alert alert-primary">
+                    <p>You don't have any liked posts</p>
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -448,9 +448,11 @@ md = {
 
 
   initRightMenu: debounce(function() {
+    console.log("inceput de functie");
     $sidebar_wrapper = $('.sidebar-wrapper');
 
     if (!mobile_menu_initialized) {
+      console.log("in if");
       $navbar = $('nav').find('.navbar-collapse').children('.navbar-nav');
 
       mobile_menu_content = '';
@@ -459,15 +461,21 @@ md = {
 
       nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
 
-      navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+      if ($('nav').find('.navbar-form').get(0)) {
+        navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+      }
 
       $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
       // insert the navbar form before the sidebar list
       $nav_content = $(nav_content);
-      $navbar_form = $(navbar_form);
+      if ($('nav').find('.navbar-form').get(0)) {
+        $navbar_form = $(navbar_form);
+      }
       $nav_content.insertBefore($sidebar_nav);
-      $navbar_form.insertBefore($nav_content);
+      if ($('nav').find('.navbar-form').get(0)) {
+        $navbar_form.insertBefore($nav_content);
+      }
 
       $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
         event.stopPropagation();
@@ -479,9 +487,12 @@ md = {
 
       mobile_menu_initialized = true;
     } else {
+      console.log("aici e else");
       if ($(window).width() > 991) {
         // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-        $sidebar_wrapper.find('.navbar-form').remove();
+        if ($sidebar_wrapper.find('.navbar-form')) {
+          $sidebar_wrapper.find('.navbar-form').remove();
+        }
         $sidebar_wrapper.find('.nav-mobile-menu').remove();
 
         mobile_menu_initialized = false;

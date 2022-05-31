@@ -1,8 +1,13 @@
 <div class="card pub_image rounded-0">
     <div class="card-header">
+        <!-- If user has image, show it, if not, show default -->
         @if($image->user->image)
         <div class="container-avatar">
             <img src="{{ route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
+        </div>
+        @else
+        <div class="container-avatar">
+            <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
         </div>
         @endif
         <div class="data-user">
@@ -18,18 +23,17 @@
         <ul class="navbar-nav">
 
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @if(auth()->user()->image)
+                <a class="nav-link nav-mini" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
                         <circle cx="12" cy="12" r="1.5"></circle>
                         <circle cx="6" cy="12" r="1.5"></circle>
                         <circle cx="18" cy="12" r="1.5"></circle>
-                    </svg> @endif
+                    </svg>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                     <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
+                    <a class="dropdown-item  hover-delete" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
                 </div>
             </li>
         </ul>
@@ -66,12 +70,15 @@
             </div>
         </div>
         <div class="desc ml-3">
-            <span class="nickname">
-                {{$image->user->nick}}
-            </span>
+            <a href="{{ route('profile.show', ['id' => $image->user->id]) }}">
+                <span class="nickname nick-underline">
+                    {{$image->user->nick}}
+                </span>
+            </a>
             <span class="description ml-1">
                 {{$image->description}}
             </span>
+
         </div>
 
         <!-- If count comments more than 0 -->

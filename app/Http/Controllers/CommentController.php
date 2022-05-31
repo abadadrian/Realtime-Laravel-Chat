@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class CommentController extends Controller
 {
@@ -88,9 +90,10 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function getImage($filename)
     {
-        //
+        $file = Storage::disk('users')->get($filename);
+        return new Response($file, 200);
     }
 
     /**

@@ -18,7 +18,7 @@ class LikeController extends Controller
     {
         $user = Auth::user();
         // Order by likes
-        $likes = Like::where('user_id', $user->id)->orderBy('id', 'desc');
+        $likes = Like::where('user_id', $user->id)->orderBy('id', 'desc')->get();
 
         return view('like.index', [
             'likes' => $likes

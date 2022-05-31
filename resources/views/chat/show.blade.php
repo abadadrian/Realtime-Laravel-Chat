@@ -13,7 +13,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div id="notification" class="alert mx-3  invisible fade show"></div>
+                <div id="notification" class="alert alert-primary mx-3  invisible fade show">
+                </div>
 
                 <div class="card ">
                     <div class="card-header card-header-primary">
@@ -22,7 +23,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row p-2">
-                            <div class="col-10">
+                            <div class="chat-box col-sm-10 col-xs-12">
                                 <div class="row">
                                     <div class="col-12 border rounded-lg p-3">
                                         <ul id="messages" class="list-unstyled overflow-auto" style="height: 45vh">
@@ -40,7 +41,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-2">
+                            <div class="online-box col-2">
                                 <p><strong>Online Now</strong></p>
                                 <ul id="users" class="list-unstyled overflow-auto text-info" style="height: 45vh">
                                 </ul>

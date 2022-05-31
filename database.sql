@@ -16,10 +16,9 @@ updated_at datetime,
 remember_token varchar(255),
 CONSTRAINT pk_users PRIMARY KEY (id)
 )ENGINE= InnoDB;
-
-INSERT INTO users VALUES(NULL,'user','Adrian','Abad','Hey!','faroliwi','adri@adri','password','default.jpg',CURTIME(),CURTIME(),NULL);
-INSERT INTO users VALUES(NULL,'user','Juan','Lopez','Hey!','juanlo','juan@juan','password','default.jpg',CURTIME(),CURTIME(),NULL);
-INSERT INTO users VALUES(NULL,'user','Arturo','Herraz','Hey!','arthur','arthur@arthur','password','default.jpg',CURTIME(),CURTIME(),NULL);
+INSERT INTO users VALUES(NULL,'user','Adrian','Abad','Hey!','faroliwi','adri@adri','password','',CURTIME(),CURTIME(),NULL);
+INSERT INTO users VALUES(NULL,'user','Juan','Lopez','Hey!','juanlo','juan@juan','password','',CURTIME(),CURTIME(),NULL);
+INSERT INTO users VALUES(NULL,'user','Arturo','Herraz','Hey!','arthur','arthur@arthur','password','',CURTIME(),CURTIME(),NULL);
 
 CREATE TABLE IF NOT EXISTS images(
 id int(255) auto_increment not null,

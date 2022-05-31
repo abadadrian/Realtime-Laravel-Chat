@@ -42,7 +42,6 @@ class ImageController extends Controller
 
         //Validación
         $validate = $this->validate($request, [
-            'description' => 'required',
             'image_path'  => 'required|image'
         ]);
 
@@ -88,8 +87,8 @@ class ImageController extends Controller
         $user = Auth::user();
         // Get image
         $image = Image::find($id);
-        // Check if user is the owner of the image
-        if ($user && $image && $user->id == $image->user_id) {
+        // Check if user is the owner of the image or role admin
+        if ($user && ($user->id == $image->user_id || $user->role == 'ADMIN')) {
             return view('image.edit', ['image' => $image]);
         } else {
             return redirect('/home')->with('error', 'Unauthorized');
@@ -100,7 +99,6 @@ class ImageController extends Controller
     {
         //Validate
         $validate = $this->validate($request, [
-            'description' => 'required',
             'image_path'  => 'image'
         ]);
 
@@ -124,7 +122,7 @@ class ImageController extends Controller
         $image->update();
 
         return redirect()->route('image.detail', ['id' => $image_id])
-            ->with(['message' => 'Image Updated Successfully']);
+            ->withStatus(__('Image successfully updated.'));
     }
 
     //Function to delete the image and its comments

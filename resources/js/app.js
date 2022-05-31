@@ -48,3 +48,5 @@ Echo.private('notifications')
     // We add the class of the type that we need
     notificationElement.classList.add('alert-' + e.type);
 });
+
+
