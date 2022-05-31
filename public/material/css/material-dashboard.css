@@ -13346,14 +13346,19 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .off-canvas-sidebar .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
-  padding-top: 15px;
-  padding-bottom: 15px;
   font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
   border-radius: 3px;
-  color: #fff;
+  color: #262626;
   margin: 0 15px;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.nav-text{
+  padding: 0.8rem 0 0 1rem;
 }
 
 .off-canvas-sidebar .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
