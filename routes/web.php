@@ -78,7 +78,7 @@ Route::get('/admin/user/edit/{id}', 'App\Http\Controllers\AdminController@editUs
 Route::get('/admin/image/edit/{id}', 'App\Http\Controllers\AdminController@editImage')->name('admin.image.edit');
 
 // Update the user by id
-Route::put('/admin/user/update', 'App\Http\Controllers\AdminController@updateUser')->name('admin.user.update');
+Route::put('/admin/user/update/{id}', 'App\Http\Controllers\AdminController@updateUser')->name('admin.user.update');
 
 // Show the user by id
 Route::get('/admin/user/show/{id}', 'App\Http\Controllers\AdminController@showUser')->name('admin.user.show');
@@ -124,9 +124,11 @@ Route::group(['middleware' => 'language', 'auth'], function () {
 
 // Route to delete a profile by id
 Route::get('/profile/delete/{id}', 'App\Http\Controllers\ProfileController@destroy')->name('profile.delete');
+// Delete and set to default the profile image
+Route::get('/profile/image/delete/{id}', 'App\Http\Controllers\ProfileController@deleteImageProfile')->name('profile.image.delete');
 
 Route::group(['middleware' => 'auth', 'language'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	// Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::get('profile/{id}', ['as' => 'profile.show', 'uses' => 'App\Http\Controllers\ProfileController@show']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);

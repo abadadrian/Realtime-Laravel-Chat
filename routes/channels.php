@@ -25,6 +25,6 @@ Broadcast::channel('notifications', function ($user) {
 // Recieve user that has been connected.
 Broadcast::channel('chat', function ($user) {
     if ($user != null) {
-        return ['id' => $user->id, 'name' => $user->name];
+        return ['id' => $user->id, 'nick' => $user->nick];
     }
 });

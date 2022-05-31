@@ -84,9 +84,9 @@ class ProfileController extends Controller
         return new Response($file, 200);
     }
 
-    public function show($id)
+    public function show($nick)
     {
-        $user = User::find($id);
+        $user = User::find($nick);
         return view('profile.show', ['user' => $user]);
     }
 
@@ -135,5 +135,19 @@ class ProfileController extends Controller
             $user->delete();
         }
         return redirect('/profile')->with('success', 'User has been deleted');
+    }
+
+    // Delete and set to default the profile image
+    public function deleteImageProfile($id)
+    {
+        $user = User::find($id);
+        // If profile image of user is different than default, delete from disk to save local space
+        if ($user->image != 'default.jpg') {
+            Storage::disk('users')->delete($user->image);
+        }
+        // Delete user image from database
+        $user->image = '';
+        $user->save();
+        return back()->withStatus(__('Image successfully deleted.'));
     }
 }

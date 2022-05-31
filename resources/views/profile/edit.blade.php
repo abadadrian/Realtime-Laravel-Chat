@@ -31,9 +31,12 @@
                 <div class="col-sm-7">
                   <!-- If user has image, show it, if not, show default -->
                   @if(auth()->user()->image)
-                  <div class="container-avatar">
-                    <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" class="img-profile-edit">
-                  </div>
+                  <!-- Link to delete user image and parameter user id -->
+                  <a href="{{ route('profile.image.delete', ['id'=>Auth::user()->id])  }}">
+                    <div class="container-avatar">
+                      <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" class="img-profile-edit">
+                    </div>
+                  </a>
                   @else
                   <div class="container-avatar">
                     <img src="{{ asset('material/img/default.jpg') }}" class="img-profile-edit" />

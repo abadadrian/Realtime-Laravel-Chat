@@ -1,4 +1,5 @@
-@extends('layouts.app', ['activePage' => '', 'title' => __('Reset Password')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => '', 'title' => __('Reset Password')])
+
 
 @section('content')
 <div class="content">

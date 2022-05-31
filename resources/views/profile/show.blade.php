@@ -12,7 +12,6 @@
 <div class="container">
 
     <div class="profile">
-
         <div class="profile-image">
             <!-- If user has image, show it, if not, show default -->
             @if($user->image)
@@ -20,28 +19,23 @@
             @else
             <img class="img-profile" src="{{ asset('material/img/default.jpg') }}" alt="">
             @endif
-
         </div>
 
         <div class="profile-user-settings">
-
             <h1 class="profile-user-name">{{ $user->nick }}</h1>
-
+            <!-- If auth user is user view or user is role is admin -->
+            @if(Auth::user()->id == $user->id || Auth::user()->role == 'admin')
             <a href="{{ route('profile.edit') }}" class="btn-show profile-edit-btn">Edit Profile</a>
-
-
+            @endif
         </div>
 
         <div class="profile-stats profile-bio">
             <ul class="p-0 m-0">
                 <li><span class="profile-stat-count">{{ $user->images->count() }}</span> posts</li>
             </ul>
-
             <span class="profile-real-name">{{ $user->name }} {{ $user->surname }}</span>
             <p class="profile-description">{{ $user->description }}</p>
-
         </div>
-
     </div>
     <!-- End of profile section -->
 

@@ -5,6 +5,6 @@
 </div>
 @else
 <div class="container-avatar">
-    <img src="src="{{ asset('material/img/default.jpg') }}"" class="avatar" />
+    <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
 </div>
 @endif

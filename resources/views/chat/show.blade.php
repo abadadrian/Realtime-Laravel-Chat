@@ -42,7 +42,7 @@
                                 </form>
                             </div>
                             <div class="online-box col-2">
-                                <p><strong>Online Now</strong></p>
+                                <p class="font-weight-bold online-list">Online Now</p>
                                 <ul id="users" class="list-unstyled overflow-auto text-info" style="height: 45vh">
                                 </ul>
                             </div>
@@ -63,29 +63,52 @@
             .here((users) => {
                 users.forEach((user, index) => {
                     let element = document.createElement('li');
+                    let a = document.createElement('a');
 
+                    a.textContent = '@' + user.nick;
+                    a.setAttribute('href', '/profile/' + user.id);
+                    a.setAttribute('class', 'user-online font-weight-bold');
+
+                    element.appendChild(a);
                     element.setAttribute('id', user.id);
-                    element.innerText = user.name;
-
                     usersElement.appendChild(element);
                 });
             })
             .joining((user) => {
                 let element = document.createElement('li');
+                let a = document.createElement('a');
 
+                a.textContent = '@' + user.nick;
+                a.setAttribute('href', '/profile/' + user.id);
+                a.setAttribute('class', 'user-online font');
+
+                element.appendChild(a);
                 element.setAttribute('id', user.id);
-                element.innerText = user.name;
-
                 usersElement.appendChild(element);
             })
             .leaving((user) => {
                 let element = document.getElementById(user.id);
+
                 element.parentNode.removeChild(element);
             })
             .listen('MessageSent', (e) => {
                 let element = document.createElement('li');
-                element.innerText = e.user.name + ': ' + e.message;
-                messagesElement.appendChild(element);
+                let div = document.createElement('div');
+                let img = document.createElement('img');
+                // If user has image set e.user image, if not, set the default.jpg
+                if (e.user.image) {
+                    img.setAttribute('src', 'http://chatinity.local/user/avatar/' + e.user.image);
+                } else {
+                    img.setAttribute('src', 'http://chatinity.local/material/img/default.jpg');
+                }
+                img.setAttribute('class', 'img-profile-mini');
+                console.log(e.user.image);
+                div.appendChild(img);
+                div.setAttribute('class', 'div-message d-flex mb-2');
+                element.innerText = '@' + e.user.nick + ': ' + e.message;
+                div.appendChild(element);
+                messagesElement.appendChild(div);
+
             });
     </script>
 

@@ -84,7 +84,8 @@
     margin-top: 1px;
 }
 
-.nick-underline:hover {
+.nick-underline:hover,
+.user-online:hover {
     text-decoration: underline;
 }
 
@@ -170,9 +171,20 @@
 
 .no-link,
 .no-link:hover,
-.no-link:visited {
+.no-link:visited,
+.user-online,
+.user-online:hover,
+.user-online:visited {
     color: #262626;
     text-decoration: none;
+}
+
+.online-list {
+    color: #6a39ed;
+}
+
+.div-message > li {
+    margin: 0.1rem 0 0 0.3rem;
 }
 
 .nav-mini {

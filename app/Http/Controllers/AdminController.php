@@ -91,7 +91,7 @@ class AdminController extends Controller
             $user->image = $image_path_name;
         }
         $user->update($request->all());
-        dd($user);
+        // dd($user);
 
         return back()->withStatus(__('Profile successfully updated.'));
     }
