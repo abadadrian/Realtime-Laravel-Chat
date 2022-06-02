@@ -16,7 +16,7 @@
                 <div id="notification" class="alert alert-primary mx-3  invisible fade show">
                 </div>
 
-                <div class="card ">
+                <div class="card scroll">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">{{ __('Chat Online') }}</h4>
                         <p class="card-category">{{ __('Send Messages in Real Time!') }}</p>

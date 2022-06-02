@@ -39,7 +39,7 @@ class AdminController extends Controller
         $images = Image::all();
         //Return view with images
         // Paginate
-        $images = Image::paginate(8);
+        $images = Image::paginate(5);
         return view('admin.images', ['images' => $images]);
     }
 

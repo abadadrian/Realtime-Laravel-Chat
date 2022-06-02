@@ -19,6 +19,8 @@
   <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
   <!-- Custom CSS -->
   <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/chatbox.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="{{ $class ?? '' }}">

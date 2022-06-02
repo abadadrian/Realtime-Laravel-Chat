@@ -46,12 +46,12 @@
             <td> {{ \FormatTime::LongTimeFilter($image->updated_at) }} </td>
 
             <td>
-                <a href="{{ route('admin.image.show', ['id' => $image->id]) }}" class="btn btn-info btn-sm">
-                  <i class="material-icons">visibility</i>
-                </a>
-                <a href="{{ route('admin.image.edit', ['id' => $image->id]) }}" class="btn btn-info btn-sm">
-                  <i class="material-icons">edit</i>
-                </a>
+              <a href="{{ route('admin.image.show', ['id' => $image->id]) }}" class="btn btn-info btn-sm">
+                <i class="material-icons">visibility</i>
+              </a>
+              <a href="{{ route('admin.image.edit', ['id' => $image->id]) }}" class="btn btn-info btn-sm">
+                <i class="material-icons">edit</i>
+              </a>
               <form method="GET" action="{{ route('admin.image.delete', ['id' => $image->id]) }}" enctype="multipart/form-data" style="display: contents;">
                 @csrf
                 <button type="submit" class="btn btn-danger btn-sm">
@@ -62,7 +62,7 @@
           </tr>
           @empty
           <tr>
-            <td colspan="7" class>No hay iagenes dadas de alta</td>
+            <td colspan="7" class="font-weight-bold">No images uploaded yet.</td>
           </tr>
           @endforelse
         </tbody>
