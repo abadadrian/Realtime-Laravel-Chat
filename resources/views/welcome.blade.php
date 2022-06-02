@@ -46,7 +46,7 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a class="logo" href="/home">
-              <img src="{{ asset('material/img/logo-chatinity-negro.svg') }}" style="width: 42px; height:42px;" />
+              <img src="assets/images/logo-fade-violet.svg" style="width: 42px; height:42px;" />
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -112,32 +112,25 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item second-service">
             <div class="icon"></div>
-            <h4>Rocket Speed of App</h4>
-            <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
+            <h4>Chat in Real Time</h4>
+            <p>You are allowed to chat with everyone you want. Just join the chat and start a conversation with somebody!</p>
           </div>
         </div>
-        <div class="col-lg-3">
-          <div class="service-item second-service">
-            <div class="icon"></div>
-            <h4>Rocket Speed of App</h4>
-            <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
-          </div>
-        </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item third-service">
             <div class="icon"></div>
-            <h4>Multi Workflow Idea</h4>
-            <p>If this template is beneficial for your work, please support us <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.</p>
+            <h4>Inmortalize Your Memories</h4>
+            <p>Don't let your memories be forgotten in time. Upload everything you want to your profile and share it with everyone.</p>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item fourth-service">
             <div class="icon"></div>
-            <h4>24/7 Help &amp; Support</h4>
-            <p>Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.</p>
+            <h4>Build a Comunity</h4>
+            <p>We are more than 10K users registered on Chatinity in less than 365 days. We can't wait for you, welcome to the comunity!</p>
           </div>
         </div>
       </div>

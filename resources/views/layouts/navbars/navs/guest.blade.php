@@ -3,7 +3,7 @@
   <div class="container">
     <div class="navbar-wrapper">
       <a class="navbar-brand" href="/" style="color: white;">
-        <img src="{{ asset('material/img/logo-chatinity-blanco.svg') }}" style="width: 24px; height:24px;" />
+        <img src="assets/images/logo-fade-violet.svg" style="width: 24px; height:24px;" />
         Chatinity
       </a>
     </div>
