@@ -1011,9 +1011,6 @@ Banner Style
     font-weight: 400;
 }
 
-.main-banner .left-content .first-button {
-    margin-right: 15px;
-}
 
 .main-banner .left-content .white-button {
     display: inline-block;
@@ -2062,6 +2059,7 @@ responsive
     .main-banner .left-content .white-button a {
         background-color: #6a39ed;
         color: #fff !important;
+        margin-bottom: 1rem;
     }
     form#contact {
         overflow: hidden;
@@ -2074,7 +2072,7 @@ responsive
     }
     .main-banner {
         text-align: center;
-        padding: 226px 0px 30px 0px;
+        padding: 120px 0px 30px 0px;
     }
     .main-banner:before {
         display: none;
