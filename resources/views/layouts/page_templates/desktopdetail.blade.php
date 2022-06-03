@@ -179,9 +179,8 @@
                                     <!-- Input with the user nick in the placeholder -->
                                     <input type="text" class="form-control" id="comment" name="content" placeholder="Add a comment as {{ Auth::user()->nick }}..." required>
                                 </div>
-                                <button type="submit" class="rounded-pill btn btn-outline-primary  mb-2">Post</button>
+                                <button type="submit" class="rounded-pill btn btn-outline-primary mb-2">Post</button>
                         </div>
-
                     </div>
                 </div>
             </div>

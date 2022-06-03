@@ -1,4 +1,4 @@
-@extends('layouts.app', [ 'titlePage' => __('User Profile')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Edit Image')])
 
 @section('content')
 <div class="content">

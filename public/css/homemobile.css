@@ -1,16 +1,22 @@
 /* Home Display For Mobile */
 
-.mobile {
-    display: none;
-}
 
+.pub_image {
+    margin-top: 7rem !important;
+}
 @media (max-width: 768px) {
     /* In mobile hide desktop div */
+    body {
+        background-color: white;
+    }
     .main-panel > div {
         margin-top: 6rem;
     }
     .mobile {
         display: inline;
+    }
+    #comment{
+        margin-left: 1rem !important;
     }
     .desktop {
         display: none;
@@ -43,7 +49,20 @@
 
     .card {
         margin-bottom: 0px !important;
-        margin-top: 0px !important;
+        margin-top: 6rem !important;
         border-radius: 0px !important;
+    }
+
+    .likes-comments {
+        padding: 0.5rem;
+    }
+
+    .desc,
+    .date,
+    #view-comments,
+    .form-group,
+    .desc-detail,
+    .date-detail {
+        padding: 0 0.5rem;
     }
 }
