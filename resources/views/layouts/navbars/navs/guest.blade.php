@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
   <div class="container">
     <div class="navbar-wrapper">
-      <a class="navbar-brand" href="/" style="color: white;">
-        <img src="assets/images/logo-fade-violet.svg" style="width: 24px; height:24px;" />
+      <a class="navbar-brand" href="/" style="color: #262626;">
+        <img src="{{ asset('material/img/logo-chatinity-negro.svg') }}" style="width: 24px; height:24px;" />
         Chatinity
       </a>
     </div>

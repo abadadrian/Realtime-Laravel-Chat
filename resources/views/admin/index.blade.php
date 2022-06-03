@@ -66,7 +66,7 @@
           </tr>
           @empty
           <tr>
-            <td colspan="7" class>No hay miembros dados de alta</td>
+            <td colspan="7" class>No users registered yet.</td>
           </tr>
           @endforelse
         </tbody>

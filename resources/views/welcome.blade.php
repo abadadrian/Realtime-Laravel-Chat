@@ -79,10 +79,10 @@
                   </div>
                   <div class="col-lg-12">
                     <div class="white-button first-button scroll-to-section">
-                      <a href="#contact">Get it on AppStore <i class="fab fa-apple"></i></a>
+                      <a href="#contact">Download on AppStore <i class="fab fa-apple"></i></a>
                     </div>
                     <div class="white-button scroll-to-section">
-                      <a href="#contact">Get it on GooglePlay <i class="fab fa-google-play"></i></a>
+                      <a href="#contact">Download on GooglePlay <i class="fab fa-google-play"></i></a>
                     </div>
                   </div>
                 </div>
@@ -144,60 +144,25 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-3">
-          <div class="footer-widget">
+        <div class="col-lg-12">
+          <div class="footer-widget text-center">
             <h4>Contact Us</h4>
-            <p>Rio de Janeiro - RJ, 22795-008, Brazil</p>
-            <p><a href="#">010-020-0340</a></p>
-            <p><a href="#">info@company.co</a></p>
+            <p>Zaragoza 50017, Spain</p>
+            <p><a href="#">976 25 14 84</a></p>
+            <p><a href="#">info@chatinity.com</a></p>
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="footer-widget">
-            <h4>About Us</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Pricing</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Pricing</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="footer-widget">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Free Apps</a></li>
-              <li><a href="#">App Engine</a></li>
-              <li><a href="#">Programming</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">App News</a></li>
-            </ul>
-            <ul>
-              <li><a href="#">App Dev Team</a></li>
-              <li><a href="#">Digital Web</a></li>
-              <li><a href="#">Normal Apps</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="footer-widget">
+
+          <div class="footer-widget text-center">
             <h4>About Our Company</h4>
             <div class="logo">
               <img src="assets/images/white-logo.png" alt="">
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <p>We are a young company, based in Zaragoza, Spain. We develop web and mobile applications.</p>
           </div>
         </div>
         <div class="col-lg-12">
-          <div class="copyright-text">
-            <p>Copyright © 2022 Chatinity - Chat and Comunity . All Rights Reserved.</p>
+          <div class="copyright-text text-center">
+            <p class="font-weight-bold">Copyright © 2022 Chatinity - Chat and Comunity . All Rights Reserved.</p>
           </div>
         </div>
       </div>

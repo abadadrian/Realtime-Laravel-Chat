@@ -16290,8 +16290,15 @@ thead.thead-inverse th,
   padding: 5px !important;
 }
 
-body {
+.body-auth {
   background-color: #eee;
+  color: #3C4858;
+  font-weight: 300;
+}
+
+.body-guest {
+  /* Background image of assets/images */
+  background-image: url("../../assets/images/background-guest.jpg");
   color: #3C4858;
   font-weight: 300;
 }
@@ -18097,9 +18104,7 @@ Copyright (c) 2015 Daniel Eden
   .presentation-page .section-components .coloured-card-btn-img {
     top: -2%;
   }
-  .login-page .container {
-    padding-top: 100px !important;
-  }
+
   .presentation-page #cd-vertical-nav,
   .index-page #cd-vertical-nav,
   .section-page #cd-vertical-nav {

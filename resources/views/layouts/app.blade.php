@@ -22,8 +22,7 @@
   <link href="{{ asset('css/chatbox.css') }}" rel="stylesheet">
 
 </head>
-
-<body class="{{ $class ?? '' }}">
+<body class="{{ $class ?? '' }} body-">
   @auth()
   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
