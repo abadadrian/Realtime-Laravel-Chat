@@ -1,5 +1,6 @@
 @extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('User Profile')])
 
+<link href="{{ asset('css/homemobile.css') }}" rel="stylesheet">
 
 @push('styles')
 <style type="text/css">
