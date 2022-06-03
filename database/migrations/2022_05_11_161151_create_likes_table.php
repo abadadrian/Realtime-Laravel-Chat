@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
+            // Image id
             $table->id();
+            // User id
+            $table->unsignedBigInteger('user_id');
+            // Image id
+            $table->unsignedBigInteger('image_id');
+            // Timestamps
             $table->timestamps();
         });
     }
