@@ -357,6 +357,42 @@ template {
   display: none !important;
 }
 
+/* Home Display For Mobile */
+@media (max-width: 768px) {
+  .container-fluid {
+    width: 100%;
+    padding-right: 0px!important;
+    padding-left: 0px !important;
+    margin-right: 0px!important;
+    margin-left: 0px!important;
+}
+.container {
+  max-width: 100% !important;
+  margin: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.col-md-8{
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.pub_image, .pub_image_detail {
+  box-shadow: none;
+  border: none !important;
+}
+
+.card {
+  margin-bottom: 0px !important;
+  margin-top: 0px !important;
+  border-radius: 0px !important;
+}
+
+
+}
+
 @media print {
   *,
   *::before,
