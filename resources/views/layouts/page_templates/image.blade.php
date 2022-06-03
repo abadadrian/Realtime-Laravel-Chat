@@ -1,4 +1,4 @@
-<div class="card pub_image rounded-0">
+<div class="mt-0 card pub_image rounded-0">
     <div class="card-header">
         <!-- If user has image, show it, if not, show default -->
         @if($image->user->image)
