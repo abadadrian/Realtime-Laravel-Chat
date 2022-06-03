@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class UsersTableSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'surname' => 'Admin',
             'nick' => 'admin_chatinity',
             'email' => 'admin@material.com',
-            'description' =>'I am the admin',
+            'description' => 'I am the admin',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
             'created_at' => now(),
