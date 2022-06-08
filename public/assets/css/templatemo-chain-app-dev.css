@@ -1010,7 +1010,6 @@ Banner Style
     font-weight: 400;
 }
 
-
 .main-banner .left-content .white-button {
     display: inline-block;
 }
@@ -2162,6 +2161,7 @@ responsive
     footer {
         padding-top: 0px;
         text-align: center;
+        padding-top: 160px;
     }
     .footer-widget ul {
         display: block;

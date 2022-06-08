@@ -19,13 +19,13 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'role' => 'admin',
             'image' => '',
-            'name' => 'Admin Admin',
+            'name' => 'Admin',
             'surname' => 'Admin',
-            'nick' => 'admin-chatinity',
+            'nick' => 'adminchatinity',
             'email' => 'admin@chatinity.com',
-            'description' => 'I am the admin',
+            'description' => 'I am the admin of Chatinity',
             'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('password'),
             'created_at' => now(),
             'updated_at' => now()
         ]);

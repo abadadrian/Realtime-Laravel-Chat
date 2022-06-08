@@ -25,17 +25,17 @@
                         <div class="row p-2">
                             <div class="chat-box col-sm-10 col-xs-12">
                                 <div class="row">
-                                    <div class="col-12 border rounded-lg p-3">
+                                    <div id="chatbox-content" class="col-12 border rounded-lg p-3 ">
                                         <ul id="messages" class="list-unstyled overflow-auto" style="height: 45vh">
                                         </ul>
                                     </div>
                                 </div>
                                 <form>
                                     <div class="row py-3">
-                                        <div class="col-10">
+                                        <div class="col-sm-8 col-md-10">
                                             <input id="message" type="text" class="form-control">
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-sm-4 col-md-2">
                                             <button id="send" type="submit" class="btn btn-primary btn-block">Send</button>
                                         </div>
                                     </div>
@@ -72,6 +72,7 @@
                     element.appendChild(a);
                     element.setAttribute('id', user.id);
                     usersElement.appendChild(element);
+
                 });
             })
             .joining((user) => {
@@ -104,10 +105,12 @@
                 img.setAttribute('class', 'img-profile-mini');
                 console.log(e.user.image);
                 div.appendChild(img);
-                div.setAttribute('class', 'div-message d-flex mb-2');
+                div.setAttribute('class', 'div-message d-flex pb-2');
                 element.innerText = '@' + e.user.nick + ': ' + e.message;
                 div.appendChild(element);
                 messagesElement.appendChild(div);
+                $('#chatbox-content').scrollTop($(document).height());
+
 
             });
     </script>

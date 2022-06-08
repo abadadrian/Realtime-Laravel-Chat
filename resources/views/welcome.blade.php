@@ -45,7 +45,7 @@
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a class="logo" href="/home">
+            <a class="logo" href="">
               <img src="assets/images/logo-fade-violet.svg" style="width: 42px; height:42px;" />
             </a>
             <!-- ***** Logo End ***** -->
@@ -70,7 +70,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-lg-6 align-self-center">
+            <div class="col-lg-4 align-self-center">
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-11">
@@ -78,7 +78,7 @@
                     <p class="text-header">Chatinity is an app that allows you to chat with users from all over the world in real time. You can also upload all your photos so that everyone can interact with them. Dont waste more time and join our comunity!</p>
                   </div>
                   <div class="col-lg-12">
-                    <div class="white-button first-button scroll-to-section">
+                    <div class="white-button first-button scroll-to-section mb-3">
                       <a href="#contact">Download on AppStore <i class="fab fa-apple"></i></a>
                     </div>
                     <div class="white-button scroll-to-section">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="assets/images/slider-dec.png" alt="">
               </div>
@@ -116,7 +116,7 @@
           <div class="service-item second-service">
             <div class="icon"></div>
             <h4>Chat in Real Time</h4>
-            <p>You are allowed to chat with everyone you want. Just join the chat and start a conversation with somebody!</p>
+            <p>You are allowed to chat with everyone you want. Just join the chat and start a conversation with somebody! Each new connection will be a new conversation.</p>
           </div>
         </div>
         <div class="col-lg-4">
@@ -148,14 +148,14 @@
           <div class="footer-widget text-center">
             <h4>Contact Us</h4>
             <p>Zaragoza 50017, Spain</p>
-            <p><a href="#">976 25 14 84</a></p>
-            <p><a href="#">info@chatinity.com</a></p>
+            <p><a href="">976 25 14 84</a></p>
+            <p><a href="">info@chatinity.com</a></p>
           </div>
 
           <div class="footer-widget text-center">
             <h4>About Our Company</h4>
             <div class="logo">
-              <img src="assets/images/white-logo.png" alt="">
+              <img src="assets/images/white-logo.png" alt="logo-elewit" class="mt-3">
             </div>
             <p>We are a young company, based in Zaragoza, Spain. We develop web and mobile applications.</p>
           </div>

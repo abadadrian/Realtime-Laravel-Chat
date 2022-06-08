@@ -15,46 +15,46 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card pub_image rounded-0">
-                    <div class="card-header ">
-                        <!-- If user has image, show it, if not, show default -->
-                        @if($image->user->image)
-                        <div class="container-avatar">
-                            <img src="{{ route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
-                        </div>
-                        @else
-                        <div class="container-avatar">
-                            <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
-                        </div>
-                        @endif
-                        <div class="data-user">
-                            <a href="{{ route('profile.show',['id'=>$image->user->id]) }}">
-                                <span class="nickname">
-                                    {{ $image->user->nick }}
-                                </span>
-                            </a>
-                        </div>
+                <div class="card-header">
+        <!-- If user has image, show it, if not, show default -->
+        @if($image->user->image)
+        <div class="container-avatar">
+            <img src="{{ route('user.avatar',['filename'=>$image->user->image]) }}" class="avatar" />
+        </div>
+        @else
+        <div class="container-avatar">
+            <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
+        </div>
+        @endif
+        <div class="data-user">
+            <a href="{{ route('profile.show',['id'=>$image->user->id]) }}">
+                <span class="nickname">
+                    {{ $image->user->nick }}
+                </span>
+            </a>
+        </div>
 
-                        <!-- Show "More options" if you are owner of this image or your role is admin -->
-                        @if(Auth::user()->id == $image->user_id || Auth::user()->role == 'admin')
-                        <ul class="navbar-nav">
+        <!-- Show "More options" if you are owner of this image or your role is admin -->
+        @if(Auth::user()->id == $image->user_id || Auth::user()->role == 'admin')
+        <ul class="navbar-nav">
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link nav-mini" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
-                                        <circle cx="12" cy="12" r="1.5"></circle>
-                                        <circle cx="6" cy="12" r="1.5"></circle>
-                                        <circle cx="18" cy="12" r="1.5"></circle>
-                                    </svg>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item  hover-delete" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
-                                </div>
-                            </li>
-                        </ul>
-                        @endif
-                    </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-mini" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg aria-label="Moreoptions" class="delete-option" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <circle cx="12" cy="12" r="1.5"></circle>
+                        <circle cx="6" cy="12" r="1.5"></circle>
+                        <circle cx="18" cy="12" r="1.5"></circle>
+                    </svg>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                    <a class="dropdown-item" href="{{ route('image.edit', ['id' => $image->id]) }}">{{ __('Edit') }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item  hover-delete" href="{{ route('image.delete', ['id' => $image->id]) }}">{{ __('Delete') }}</a>
+                </div>
+            </li>
+        </ul>
+        @endif
+    </div>
 
                     <div class="card-body">
                         <div class="image-container">
@@ -84,16 +84,24 @@
                             </div>
                         </div>
                         <!-- Name Image -->
-                        <div class="desc ml-3">
-                            <a href="{{ route('profile.show', ['id' => $image->user->id]) }}">
-                                <span class="nickname nick-underline">
-                                    {{$image->user->nick}}
+                        <div class="desc-detail">
+                            @if($image->user->image)
+                            <div class="container-avatar">
+                                <img src="{{ route('user.avatar',['filename'=>$comment->user->image]) }}" class="avatar" />
+                            </div>
+                            @else
+                            <div class="container-avatar">
+                                <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
+                            </div>
+                            @endif
+                            <div class="data-user-detail d-flex">
+                                <span class="nickname">
+                                    {{ $image->user->nick }}
                                 </span>
-                            </a>
-                            <span class="description ml-1">
+                            </div>
+                            <div class="description d-flex ml-1 mt-1">
                                 {{$image->description}}
-                            </span>
-
+                            </div>
                         </div>
                         <!-- Date when the picture was uploaded -->
                         <div class="date ml-3 mb-3">
@@ -102,36 +110,43 @@
                             </span>
                         </div>
                         <!-- List of comments -->
-                        @foreach($image->comments as $comment)
-                        <div class="desc-detail">
-                            @if($image->user->image)
-                            <div class="container-avatar">
-                                <img src="{{ route('user.avatar',['filename'=>$comment->user->image]) }}" class="avatar" />
+                        <div id="comments">
+                            @foreach($image->comments as $comment)
+
+                            <div class="desc-detail">
+                                @if($image->user->image)
+                                <div class="container-avatar">
+                                    <img src="{{ route('user.avatar',['filename'=>$comment->user->image]) }}" class="avatar" />
+                                </div>
+                                @else
+                                <div class="container-avatar">
+                                    <img src="{{ asset('material/img/default.jpg') }}" class="avatar" />
+                                </div>
+                                @endif
+                                <div class="data-user-detail">
+                                    <span class="nickname">
+                                        {{ $comment->user->nick }}
+                                    </span>
+                                </div>
+                                <div class="description ml-1 mt-1">
+                                    {{$comment->content}}
+                                </div>
                             </div>
-                            @endif
-                            <div class="data-user-detail">
-                                <span class="nickname">
-                                    {{ $comment->user->nick }}
+                            <!-- Date when the comment was posted -->
+                            <div class="date-detail mt-1 ml-3 mb-4">
+                                <span id="date-text">
+                                    {{ \FormatTime::LongTimeFilter($comment->created_at) }}
+                                    @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->image->user_id == Auth::user()->id))
+                                    <!-- Delete Button -->
+                                    <a href="{{ route('comment.destroy',['id'=>$comment->id]) }}" class=" ml-1">
+                                        Delete
+                                    </a>
+                                    @endif
                                 </span>
                             </div>
-                            <div class="description ml-1 mt-1">
-                                {{$comment->content}}
-                            </div>
+                            <div class="clearfix"></div>
+                            @endforeach
                         </div>
-                        <!-- Date when the comment was posted -->
-                        <div class="date-detail mt-1 ml-3 mb-4">
-                            <span id="date-text">
-                                {{ \FormatTime::LongTimeFilter($comment->created_at) }}
-                                @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->image->user_id == Auth::user()->id))
-                                <!-- Delete Button -->
-                                <a href="{{ route('comment.destroy',['id'=>$comment->id]) }}" class=" ml-1">
-                                    Delete
-                                </a>
-                                @endif
-                            </span>
-                        </div>
-                        <div class="clearfix"></div>
-                        @endforeach
 
                         <!-- Comments Form -->
                         <div class="comments">

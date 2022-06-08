@@ -27,7 +27,7 @@
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('image_path') }}</strong>
                                     </span>
-                                    @endif
+                                    º @endif
 
                                     <div class="row">
                                         <label class="col-sm-2 col-form-label">{{ __('Description') }}</label>

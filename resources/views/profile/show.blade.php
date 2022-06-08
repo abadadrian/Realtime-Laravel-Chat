@@ -45,8 +45,8 @@
 <div class="container">
     <div class="row">
         @foreach ($user->images as $image)
-        <div class="col-md-4 image-box mb-5">
-            <div class="card image-box">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 image-box mb-5">
+            <div class=" image-box">
                 <a class="image-box gallery-item m-0" href="{{ route('image.detail', $image->id) }}">
                     <img class="image-box" src="{{ route('image.file', ['filename' => $image->image_path]) }}" alt="Card image cap">
                     <div class="gallery-item-info">
