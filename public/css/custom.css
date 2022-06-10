@@ -23,6 +23,14 @@ nav {
     padding: 0 !important;
 }
 
+li.nav-item.dropdown {
+    list-style: none;
+}
+
+#image_path {
+    display: none;
+}
+
 .potrait .company-header-avatar {
     width: 100%;
     height: auto;
@@ -81,6 +89,15 @@ nav {
     display: flex;
     margin-left: 1.2rem;
     vertical-align: middle;
+}
+
+.delete-image:hover {
+    background-color: black;
+    opacity: 0.3;
+}
+
+.div-message > li {
+    max-width: 85%;
 }
 
 .description {
@@ -499,6 +516,18 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 .gallery-item-likes {
     margin-right: 2.2rem;
     color: white;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 63px;
+    left: 80px;
+    color: black;
+    display: none;
+}
+
+.delete-image:hover .delete-icon {
+    display: flex;
 }
 
 .gallery-item-comments {

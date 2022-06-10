@@ -18,76 +18,76 @@ Route::get('/', function () {
 
 
 // Route (get) to show chat
-Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show')->middleware('auth');;
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show')->middleware('auth');
 // Route (post) message received
-Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'messageReceived'])->name('chat.message')->middleware('auth');;
+Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'messageReceived'])->name('chat.message')->middleware('auth');
 // GENERAL ROUTES
 Auth::routes();
 // Home Route
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');;
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 // Shows users avatar img
-Route::get('/user/avatar/{filename}', 'App\Http\Controllers\ProfileController@getImage')->name('user.avatar')->middleware('auth');;
+Route::get('/user/avatar/{filename}', 'App\Http\Controllers\ProfileController@getImage')->name('user.avatar')->middleware('auth');
 
 // ROUTE FOR COMMENTS
 // Store the comment into an image
-Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.store')->middleware('auth');;
+Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.store')->middleware('auth');
 // Delete you own message
-Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name('comment.destroy')->middleware('auth');;
+Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name('comment.destroy')->middleware('auth');
 // Get user comment image
-Route::get('/comment/image/{filename}', 'App\Http\Controllers\CommentController@getImage')->name('comment.avatar')->middleware('auth');;
+Route::get('/comment/image/{filename}', 'App\Http\Controllers\CommentController@getImage')->name('comment.avatar')->middleware('auth');
 
 
 // ROUTES FOR LIKES
 // Store the like into an image
-Route::get('/like/{image_id}', 'App\Http\Controllers\LikeController@like')->name('like.save')->middleware('auth');;
+Route::get('/like/{image_id}', 'App\Http\Controllers\LikeController@like')->name('like.save')->middleware('auth');
 // Delete the like into an image
-Route::get('/dislike/{image_id}', 'App\Http\Controllers\LikeController@dislike')->name('like.delete')->middleware('auth');;
+Route::get('/dislike/{image_id}', 'App\Http\Controllers\LikeController@dislike')->name('like.delete')->middleware('auth');
 // List of all likes
-Route::get('/likes', 'App\Http\Controllers\LikeController@index')->name('likes')->middleware('auth');;
+Route::get('/likes', 'App\Http\Controllers\LikeController@index')->name('likes')->middleware('auth');
 
 // ROUTE FOR IMAGES
 // Delete image
-Route::get('/image/delete/{id}', 'App\Http\Controllers\ImageController@delete')->name('image.delete')->middleware('auth');;
+Route::get('/image/delete/{id}', 'App\Http\Controllers\ImageController@delete')->name('image.delete')->middleware('auth');
 // Edit image
-Route::get('/image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit')->middleware('auth');;
+Route::get('/image/edit/{id}', 'App\Http\Controllers\ImageController@edit')->name('image.edit')->middleware('auth');
 // Shows users avatar img IN HOME
-Route::get('/image/file/{filename}', 'App\Http\Controllers\ImageController@getImage')->name('image.file')->middleware('auth');;
+Route::get('/image/file/{filename}', 'App\Http\Controllers\ImageController@getImage')->name('image.file')->middleware('auth');
 // Show the image alone
-Route::get('/image/{id}', 'App\Http\Controllers\ImageController@detail')->name('image.detail')->middleware('auth');;
+Route::get('/image/{id}', 'App\Http\Controllers\ImageController@detail')->name('image.detail')->middleware('auth');
 // Update image
-Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->name('image.update')->middleware('auth');;
+Route::post('/image/update', 'App\Http\Controllers\ImageController@update')->name('image.update')->middleware('auth');
 // Upload the image
-Route::get('/upload', 'App\Http\Controllers\ImageController@create')->name('upload.image')->middleware('auth');;
+Route::get('/upload', 'App\Http\Controllers\ImageController@create')->name('upload.image')->middleware('auth');
 // Store the image
-Route::post('/image/store', 'App\Http\Controllers\ImageController@store')->name('upload.store')->middleware('auth');;
+Route::post('/image/store', 'App\Http\Controllers\ImageController@store')->name('upload.store')->middleware('auth');
 
 // ROUTES FOR ADMIN
 // Show the admin panel users
-Route::get('/admin/users', 'App\Http\Controllers\AdminController@viewUsers')->name('admin.users')->middleware('auth');;
+Route::get('/admin/users', 'App\Http\Controllers\AdminController@viewUsers')->name('admin.users')->middleware('auth');
 // Show the admin panel images
-Route::get('/admin/images', 'App\Http\Controllers\AdminController@viewImages')->name('admin.images')->middleware('auth');;
+Route::get('/admin/images', 'App\Http\Controllers\AdminController@viewImages')->name('admin.images')->middleware('auth');
 
 // Delete the user by id
-Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\AdminController@destroyUser')->name('admin.user.delete')->middleware('auth');;
+Route::get('/admin/user/delete/{id}', 'App\Http\Controllers\AdminController@destroyUser')->name('admin.user.delete')->middleware('auth');
 // Delete the image by id
-Route::get('/admin/image/delete/{id}', 'App\Http\Controllers\AdminController@destroyImage')->name('admin.image.delete')->middleware('auth');;
+Route::get('/admin/image/delete/{id}', 'App\Http\Controllers\AdminController@destroyImage')->name('admin.image.delete')->middleware('auth');
 
 // Edit the user by id
-Route::get('/admin/user/edit/{id}', 'App\Http\Controllers\AdminController@editUser')->name('admin.user.edit')->middleware('auth');;
+Route::get('/admin/user/edit/{id}', 'App\Http\Controllers\AdminController@editUser')->name('admin.user.edit')->middleware('auth');
 // Edit the image by id
-Route::get('/admin/image/edit/{id}', 'App\Http\Controllers\AdminController@editImage')->name('admin.image.edit')->middleware('auth');;
+Route::get('/admin/image/edit/{id}', 'App\Http\Controllers\AdminController@editImage')->name('admin.image.edit')->middleware('auth');
 
 // Update the user by id
-Route::put('/admin/user/update/{id}', 'App\Http\Controllers\AdminController@updateUser')->name('admin.user.update')->middleware('auth');;
+Route::put('/admin/user/update/{id}', 'App\Http\Controllers\AdminController@updateUser')->name('admin.user.update')->middleware('auth');
 
 // Show the user by id
-Route::get('/admin/user/show/{id}', 'App\Http\Controllers\AdminController@showUser')->name('admin.user.show')->middleware('auth');;
+Route::get('/admin/user/show/{id}', 'App\Http\Controllers\AdminController@showUser')->name('admin.user.show')->middleware('auth');
 // Show the image by id
-Route::get('/admin/image/show/{id}', 'App\Http\Controllers\AdminController@showImage')->name('admin.image.show')->middleware('auth');;
+Route::get('/admin/image/show/{id}', 'App\Http\Controllers\AdminController@showImage')->name('admin.image.show')->middleware('auth');
 
 
 //Show all users and search (optional)
-Route::get('/people/{search?}', 'App\Http\Controllers\ProfileController@index')->name('profile.index')->middleware('auth');;
+Route::get('/people/{search?}', 'App\Http\Controllers\ProfileController@index')->name('profile.index')->middleware('auth');
 
 // Users in realtime using api
 // Route with middleware auth

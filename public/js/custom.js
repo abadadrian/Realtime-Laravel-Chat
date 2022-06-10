@@ -83,5 +83,10 @@ window.addEventListener("load", function () {
         );
     });
 
+    //Input Custom
+        $("#upload_link").on('click', function(e){
+            e.preventDefault();
+            $("#image_path:hidden").trigger('click');
+        });
 
 });

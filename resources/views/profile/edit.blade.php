@@ -29,20 +29,27 @@
               <div class="row">
                 <label class="col-sm-2 col-form-label">{{ __('Profile Image') }}</label>
                 <div class="col-sm-7">
-                  <!-- If user has image, show it, if not, show default -->
-                  @if(auth()->user()->image)
+
                   <!-- Link to delete user image and parameter user id -->
-                  <a href="{{ route('profile.image.delete', ['id'=>Auth::user()->id])  }}">
-                    <div class="container-avatar">
-                      <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" class="img-profile-edit">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link mb-1" href="#" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- If user has image, show it, if not, show default -->
+                      @if(auth()->user()->image)
+                      <div class="container-avatar delete-image">
+                        <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" class="img-profile-edit">
+                      </div>
+                      @else
+                      <div class=" container-avatar delete-image">
+                        <img src="{{ asset('material/img/default.jpg') }}" class="img-profile-edit" />
+                      </div>
+                      @endif
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
+                      <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" placeholder="{{ __('image_path') }}" />
+                      <a class="dropdown-item" href="" id="upload_link">{{ __('Replace Image') }}</a>
+                      <a class="dropdown-item hover-delete" href="{{ route('profile.image.delete', ['id'=>Auth::user()->id])  }}">{{ __('Delete Image') }}</a>
                     </div>
-                  </a>
-                  @else
-                  <div class="container-avatar">
-                    <img src="{{ asset('material/img/default.jpg') }}" class="img-profile-edit" />
-                  </div>
-                  @endif
-                  <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" placeholder="{{ __('image_path') }}" />
+                  </li>
                 </div>
               </div>
               <div class="row">
