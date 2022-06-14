@@ -14,20 +14,22 @@
       <span class="navbar-toggler-icon icon-bar"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbar">
-      <form class="navbar-form" id='search' method="GET" action="{{ route('profile.index') }}">
-        <div class="input-group no-border">
-          <input type="text" id='search-input' class="form-control" placeholder="Search">
-          <button type="submit" class="btn btn-white btn-round btn-just-icon">
-            <svg aria-label="Search" class="search-button" color="#262626" fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
-              <path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-              <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
-            </svg>
-            <div class="ripple-container"></div>
-          </button>
-        </div>
-      </form>
-      <ul class="navbar-nav">
 
+      <ul class="navbar-nav">
+        <li class="nav-item search-nav">
+          <form class="navbar-form" id='search' method="GET" action="{{ route('profile.index') }}">
+            <div class="input-group no-border">
+              <input type="text" id='search-input' class="form-control" placeholder="Search">
+              <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <svg aria-label="Search" class="search-button" color="#262626" fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16">
+                  <path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                  <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
+                </svg>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </form>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route ('home')}}" aria-haspopup=" true" aria-expanded="false">
             <svg aria-label="Home" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">

@@ -89,4 +89,5 @@ window.addEventListener("load", function () {
             $("#image_path:hidden").trigger('click');
         });
 
+
 });

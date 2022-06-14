@@ -28,6 +28,7 @@
     "dependencies": {
         "@material/data-table": "^14.0.0",
         "@material/dialog": "^14.0.0",
+        "@material/select": "^14.0.0",
         "@mdi/js": "^6.6.96",
         "@mdi/react": "^1.6.0",
         "@mui/icons-material": "^5.8.0"

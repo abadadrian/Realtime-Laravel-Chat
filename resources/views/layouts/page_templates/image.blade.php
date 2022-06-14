@@ -69,7 +69,7 @@
                 {{ $image->likes->count() }} Likes
             </div>
         </div>
-        <div class="desc ml-3">
+        <div class="desc-detail ml-3">
             <a href="{{ route('profile.show', ['id' => $image->user->id]) }}">
                 <span class="nickname nick-underline">
                     {{$image->user->nick}}
@@ -78,6 +78,7 @@
             <span class="description ml-1">
                 {{$image->description}}
             </span>
+
 
         </div>
 

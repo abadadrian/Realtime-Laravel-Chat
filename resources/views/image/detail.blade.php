@@ -76,7 +76,7 @@
                                     {{ $image->user->nick }}
                                 </span>
                             </div>
-                            <div class="description d-flex ml-1 mt-1">
+                            <div class="description ml-1 mt-1">
                                 {{$image->description}}
                             </div>
                         </div>

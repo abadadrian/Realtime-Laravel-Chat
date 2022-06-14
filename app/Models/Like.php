@@ -20,4 +20,16 @@ class Like extends Model
     {
         return $this->belongsTo(Image::class);
     }
+
+    // Get the likes of the image
+    public static function getLikes($image_id)
+    {
+        return Like::where('image_id', $image_id)->count();
+    }
+
+    // Get the comments of the image
+    public static function getComments($image_id)
+    {
+        return Comment::where('image_id', $image_id)->count();
+    }
 }

@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <label class="col-sm-2 col-form-label">{{ __('Image') }}</label>
                                         <div class="col-sm-7">
-                                            <input id="image_path" type="file" class="form-control" name="image_path" />
+                                            <input id="image_path2" type="file" class="form-control" name="image_path" />
                                         </div>
                                     </div>
                                     @if ($errors->has('image_path'))

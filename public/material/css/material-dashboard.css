@@ -12891,8 +12891,8 @@ label {
 
 select,
 select.form-control {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  -moz-appearance:  menulist !important;
+  -webkit-appearance:  menulist !important;
 }
 
 @media (min-width: 576px) {
@@ -18000,7 +18000,7 @@ Copyright (c) 2015 Daniel Eden
     width: auto;
     margin-bottom: 15px;
     padding-top: 0;
-    height: 300px;
+    height: fit-content;
     animation: none;
     opacity: 1;
     overflow-y: scroll;

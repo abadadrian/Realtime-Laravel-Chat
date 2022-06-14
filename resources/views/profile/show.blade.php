@@ -10,7 +10,6 @@
 @endpush
 @section('content')
 <div class="container">
-
     <div class="profile">
         <div class="profile-image">
             <!-- If user has image, show it, if not, show default -->
@@ -43,10 +42,12 @@
 <!-- End of container -->
 <!-- Bootstrap grid 3 cols 3 rows -->
 <div class="container">
-    <div class="row">
+    <!-- If user has images uploaded -->
+    @if(count($user->images) > 0)
+    <div class="row justify-content-center">
         @foreach ($user->images as $image)
-        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 image-box mb-5">
-            <div class=" image-box">
+        <div class="col-sm  image-box mb-5">
+            <div class="image-box">
                 <a class="image-box gallery-item m-0" href="{{ route('image.detail', $image->id) }}">
                     <img class="image-box" src="{{ route('image.file', ['filename' => $image->image_path]) }}" alt="Card image cap">
                     <div class="gallery-item-info">
@@ -73,4 +74,11 @@
         @endforeach
     </div>
 
-    @endsection
+    @else
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <p class="text-center font-weight-bold">This user doesn't upload nothing yet...</p>
+        </div>
+        @endif
+
+        @endsection

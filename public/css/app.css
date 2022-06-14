@@ -2187,6 +2187,7 @@ progress {
 
 .form-control {
   display: block;
+      -webkit-appearance: menulist;
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
@@ -2196,9 +2197,9 @@ progress {
   background-color: #f8fafc;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: menulist !important;
+     -moz-appearance:  menulist !important;
+          appearance:  menulist !important;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

@@ -92,8 +92,7 @@ li.nav-item.dropdown {
 }
 
 .delete-image:hover {
-    background-color: black;
-    opacity: 0.3;
+    filter: brightness(70%);
 }
 
 .div-message > li {
@@ -375,8 +374,8 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 .profile-image img {
     border-radius: 50%;
-    width: 15rem;
-    height: 15rem;
+    width: 10rem;
+    height: 10rem;
 }
 
 .profile-user-settings,
@@ -447,7 +446,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 }
 
 .profile-stats li {
-    display: inline-block;
+    display: inline-flex;
     font-size: 1.6rem;
     line-height: 1.5;
     margin-right: 4rem;
@@ -497,9 +496,9 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
-    width: 28rem;
-    height: 28rem;
+    top: -213px;
+    width: 448px;
+    height: 448px;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -593,9 +592,12 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
 @media screen and (max-width: 40rem) {
     .profile {
-        display: flex;
+        display: flex !important;
         flex-wrap: wrap;
         padding: 4rem 0;
+        align-items: center;
+        vertical-align: middle;
+        text-align: center;
     }
 
     .profile::after {
@@ -612,6 +614,8 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
     .profile-image img {
         width: 7.7rem;
+        height: 7.7rem;
+        margin-top: 2rem;
     }
 
     .profile-user-settings {
@@ -657,7 +661,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     }
 
     .profile-stats ul {
-        display: flex;
+        display: flow-root;
         text-align: center;
         padding: 1.2rem 0;
         border-top: 0.1rem solid #dadada;
@@ -747,7 +751,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
         }
 
         .profile-user-settings {
-            display: grid;
+            display: contents;
             grid-template-columns: auto 1fr;
             grid-gap: 1rem;
         }
@@ -764,6 +768,17 @@ Remove or comment-out the code block below to see how the browser will fall-back
         .profile-bio,
         .profile-stats {
             margin: 0;
+        }
+    }
+    @media screen and (max-width: 60rem) {
+        .col-sm {
+            flex-grow: 0 !important;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .search-nav {
+            padding-left: 2rem;
         }
     }
 }

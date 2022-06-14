@@ -34,12 +34,13 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link mb-1" href="#" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <!-- If user has image, show it, if not, show default -->
+
                       @if(auth()->user()->image)
-                      <div class="container-avatar delete-image">
+                      <div id="profile-card" class="container-avatar delete-image">
                         <img src="{{ route ('user.avatar', ['filename'=>Auth::user()->image]) }}" class="img-profile-edit">
                       </div>
                       @else
-                      <div class=" container-avatar delete-image">
+                      <div id="profile-card" class=" container-avatar delete-image">
                         <img src="{{ asset('material/img/default.jpg') }}" class="img-profile-edit" />
                       </div>
                       @endif
