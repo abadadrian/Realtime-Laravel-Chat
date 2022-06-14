@@ -42,7 +42,7 @@
             <img class="img-profile-medium" src="{{ asset('material/img/default.jpg') }}" alt="">
             @endif
           </th>
-          <td id="name-table">{{'@'. $image->user->nick}} </td>
+          <td id="name-table">{{'@'. $user->nick}} </td>
           <td id="surname-table">{{$user->surname}} </td>
           <td id="nick-table">{{$user->nick}} </td>
           <td id="description-table">{{$user->description}} </td>
