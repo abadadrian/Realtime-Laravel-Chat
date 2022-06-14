@@ -132,7 +132,6 @@ li.nav-item.dropdown {
     height: 6rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 2rem;
 }
 
 .img-profile-mini {
@@ -369,7 +368,6 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3rem;
 }
 
 .profile-image img {
@@ -717,12 +715,15 @@ Remove or comment-out the code block below to see how the browser will fall-back
         grid-gap: 2rem;
     }
 
-    .profile-image,
     .profile-user-settings,
     .profile-stats,
     .profile-bio,
     .gallery {
         width: auto;
+    }
+
+    .profile-image {
+        width: 100%;
     }
 
     /* Media querie 991px  */
