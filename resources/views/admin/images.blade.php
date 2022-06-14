@@ -39,9 +39,9 @@
               <img class="img-medium" src="{{ route('image.file',['filename'=>$image->image_path]) }}" alt="">
             </th>
             <td>{{'@'. $image->user->nick}} </td>
-            <td>{{$image->description}} </td>
-            <td>{{$image->likes->count()}} </td>
-            <td>{{$image->comments->count()}} </td>
+            <td id="desc-table">{{$image->description}} </td>
+            <td id="likes-table">{{$image->likes->count()}} </td>
+            <td id="comments-table">{{$image->comments->count()}} </td>
             <td id="uploadedat-table"> {{ \FormatTime::LongTimeFilter($image->created_at) }} </td>
             <td id="updatedat-table"> {{ \FormatTime::LongTimeFilter($image->updated_at) }} </td>
 

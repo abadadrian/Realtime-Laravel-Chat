@@ -295,7 +295,9 @@ li.nav-item.dropdown {
     #desc-table,
     #uploadedat-table,
     #updatedat-table,
-    #email-table {
+    #likes-table,
+    #comments-table,
+    #desc-table {
         display: none;
     }
 }
