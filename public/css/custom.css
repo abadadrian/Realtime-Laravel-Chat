@@ -280,6 +280,26 @@ li.nav-item.dropdown {
     cursor: pointer;
 }
 
+/* Hide values in table */
+/* MEdia query just in mobile */
+@media (max-width: 915px) {
+    #name-table,
+    #surname-table,
+    #description-table,
+    #email-table {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    #desc-table,
+    #uploadedat-table,
+    #updatedat-table,
+    #email-table {
+        display: none;
+    }
+}
+
 .dropdown-menu a:hover {
     color: #fff;
 }

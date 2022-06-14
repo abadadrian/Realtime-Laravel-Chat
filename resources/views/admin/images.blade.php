@@ -21,14 +21,14 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col"><b>Image</b></th>
-            <th scope="col"><b>Uploaded by</b></th>
-            <th scope="col"><b>Description</b></th>
-            <th scope="col"><b>Likes</b></th>
-            <th scope="col"><b>Comments</b></th>
-            <th scope="col"><b>Uploaded at</b></th>
-            <th scope="col"><b>Updated at</b></th>
-            <th scope="col"><b>Options</b></th>
+            <th scope="col" id="image-table"><b>Image</b></th>
+            <th scope="col" id="uploadedby-table"><b>Uploaded by</b></th>
+            <th scope="col" id="desc-table"><b>Description</b></th>
+            <th scope="col" id="likes-table"><b>Likes</b></th>
+            <th scope="col" id="comments-table"><b>Comments</b></th>
+            <th scope="col" id="uploadedat-table"><b>Uploaded at</b></th>
+            <th scope="col" id="updatedat-table"><b>Updated at</b></th>
+            <th scope="col" id="options-table"><b>Options</b></th>
           </tr>
         </thead>
         <tbody>
@@ -42,8 +42,8 @@
             <td>{{$image->description}} </td>
             <td>{{$image->likes->count()}} </td>
             <td>{{$image->comments->count()}} </td>
-            <td> {{ \FormatTime::LongTimeFilter($image->created_at) }} </td>
-            <td> {{ \FormatTime::LongTimeFilter($image->updated_at) }} </td>
+            <td id="uploadedat-table"> {{ \FormatTime::LongTimeFilter($image->created_at) }} </td>
+            <td id="updatedat-table"> {{ \FormatTime::LongTimeFilter($image->updated_at) }} </td>
 
             <td>
               <a href="{{ route('admin.image.show', ['id' => $image->id]) }}" class="btn btn-info btn-sm">
