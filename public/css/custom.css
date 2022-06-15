@@ -647,6 +647,7 @@ Flexbox and floats are used as a fallback so that browsers which don't support g
 
     .profile-user-name {
         font-size: 2.2rem;
+        width: 100%;
     }
 
     .profile-edit-btn {

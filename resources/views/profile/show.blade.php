@@ -21,7 +21,7 @@
         </div>
 
         <div class="profile-user-settings">
-            <h1 class="profile-user-name w-100">{{ $user->nick }}</h1>
+            <h1 class="profile-user-name">{{ $user->nick }}</h1>
             <!-- If auth user is user view or user is role is admin -->
             @if(Auth::user()->id == $user->id || Auth::user()->role == 'admin')
             <a href="{{ route('profile.edit') }}" class="btn-show profile-edit-btn">Edit Profile</a>
